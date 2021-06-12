@@ -1,0 +1,69 @@
+<br>
+<div class="card">
+    <form class="container-fluid" [formGroup]="regForm" (ngSubmit)="onsubmit()">
+        <br>
+        <h4>Create Employee :</h4><br>
+        <div *ngIf="alert" class="alert alert-success">
+            <strong>Your data has been stored successfully</strong>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail4">Name :</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter the name" required>
+            <small *ngIf="regform.name.touched && regform.name.invalid" class="text-danger">
+                <div *ngIf="regform.name.errors.required">Name is required</div>
+                <div *ngIf="regform.name.errors.minlength">Name should me more than 3 characters</div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Email :</label>
+            <input type="text" class="form-control" formControlName="email" placeholder="Enter the email" required>
+            <small *ngIf="regform.email.touched && regform.email.invalid" class="text-danger">
+                <div *ngIf="regform.email.errors.required">Email is required</div>
+                <div *ngIf="regform.email.errors.email">Please enter valid email</div>
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Mobile No :</label>
+            <input type="text" class="form-control" formControlName="phone" placeholder="Enter the number" required>
+            <small *ngIf="regform.phone.touched && regform.phone.invalid" class="text-danger ">
+                <div *ngIf="regform.phone.errors.required">Mobile number is required</div>
+                <div *ngIf="regform.phone.errors.pattern">Enter valid number</div>
+            </small>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">Job Title :</label>
+                <select id="inputState" class="form-control" formControlName="jobtitle" required>
+                    <option>Backend Developer</option>
+                    <option>Tester</option>
+                    <option>Frontend Developer</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputZip">Gender :</label><br>
+            <div class="form-row col-md-12">
+                &nbsp;&nbsp;&nbsp;
+                <div class="form-group col-md-3">
+                    <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="Male"
+                        checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        Male
+                    </label>
+                </div>
+                <div class="form-group col-md-6">
+                    <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="Female"
+                        checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        Female
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Sign in</button>
+        </div>
+    </form>
+    <br>
+
+</div>

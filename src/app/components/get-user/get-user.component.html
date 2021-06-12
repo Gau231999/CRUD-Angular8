@@ -1,0 +1,29 @@
+<br><br>
+<table class="table table-striped">
+    <thead class="text-center" style="background-color: rgb(36, 36, 36); color: white;"> 
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile No.</th>
+        <th scope="col">Job Titel</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+        <tr *ngFor="let item of data">
+            <th>{{item.name}}</th>
+            <th>{{item.email}}</th>
+            <th>{{item.phone}}</th>
+            <th>{{item.jobtitle}}</th>
+            <th>{{item.gender}}</th>
+            <th>
+                <button type="button" class="btn btn-success" (click)="onUpdate(item.id)" style="font-weight: bold;">Update</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" (click)="onDelete(item.id)" style="font-weight: bold;">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+  </table>
+
+  
+
